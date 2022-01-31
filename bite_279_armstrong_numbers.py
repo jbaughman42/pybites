@@ -22,11 +22,20 @@ c) any single digit numbers (1-9) are armstrong numbers as well.
 
 
 def is_armstrong(num):
-    pass
+    # checks for single digit number
+    if num % 10 == num:
+        return True
+    digits = []
+    n = num
+    while n > 0:
+        digits.insert(0, n % 10)
+        n = n//10
+    power = len(digits)
+    return num == sum([x**power for x in digits])
 
 
 def main():
-    pass
+    is_armstrong(1234)
 
 
 if __name__ == "__main__":
