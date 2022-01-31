@@ -1,6 +1,7 @@
 import pytest
 
 import bite_1_sum_n_numbers as sum_n
+from bite_279_armstrong_numbers import is_armstrong
 from bite_2_regex_fun import (extract_course_times,
                               get_all_hashtags_and_links,
                               match_first_paragraph)
@@ -141,3 +142,12 @@ def test_shortest_first_name():
 @pytest.mark.skip
 def test_shortest_first_name_different_names_list():
     assert shortest_first_name(PY_CONTENT_CREATORS) == 'Dan'
+
+
+@pytest.mark.parametrize('number, expected', [
+    (5, True), (153, True), (370, True),
+    (371, True), (4150, False), (2020, False),
+    (9474, True), (1989, False), (11, False),
+])
+def test_armstrong(number, expected):
+    assert is_armstrong(number) == expected

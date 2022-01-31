@@ -20,8 +20,10 @@ b) 371 is also an armstrong number.
 c) any single digit numbers (1-9) are armstrong numbers as well.
 """
 
-def armstrong(num):
+
+def is_armstrong(num):
     pass
+
 
 def main():
     pass
