@@ -1,12 +1,12 @@
 import pytest
 
-import sum_n_numbers as sum_n
-from parse_name_list import (NAMES, dedup_and_title_case_names,
-                             shortest_first_name, sort_by_surname_desc)
-from regex_fun import (extract_course_times,
-                       get_all_hashtags_and_links,
-                       match_first_paragraph)
-from word_values import calc_word_value, load_words, max_word_value
+import bite_1_sum_n_numbers as sum_n
+from bite_2_regex_fun import (extract_course_times,
+                              get_all_hashtags_and_links,
+                              match_first_paragraph)
+from bite_3_word_values import calc_word_value, load_words, max_word_value
+from bite_5_parse_name_list import (NAMES, dedup_and_title_case_names,
+                                    shortest_first_name, sort_by_surname_desc)
 
 
 @pytest.mark.skip
