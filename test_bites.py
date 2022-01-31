@@ -7,6 +7,7 @@ from bite_2_regex_fun import (extract_course_times,
 from bite_3_word_values import calc_word_value, load_words, max_word_value
 from bite_5_parse_name_list import (NAMES, dedup_and_title_case_names,
                                     shortest_first_name, sort_by_surname_desc)
+from test_bites_data import *
 
 
 @pytest.mark.skip
@@ -100,11 +101,7 @@ def test_non_scrabble_characters():
     assert max_word_value(["a", "åäö"]) == "a"
 
 
-PY_CONTENT_CREATORS = ['brian okken', 'michael kennedy', 'trey hunner',
-                       'matt harrison', 'julian sequeira', 'dan bader',
-                       'michael kennedy', 'brian okken', 'dan bader']
-
-
+@pytest.mark.skip
 def test_dedup_and_title_case_names():
     names = dedup_and_title_case_names(NAMES)
     assert names.count('Bob Belderbos') == 1
@@ -114,6 +111,7 @@ def test_dedup_and_title_case_names():
     assert all(n.title() in names for n in NAMES)
 
 
+@pytest.mark.skip
 def test_dedup_and_title_case_names_different_names_list():
     actual = sorted(dedup_and_title_case_names(PY_CONTENT_CREATORS))
     expected = ['Brian Okken', 'Dan Bader', 'Julian Sequeira',
@@ -121,21 +119,25 @@ def test_dedup_and_title_case_names_different_names_list():
     assert actual == expected
 
 
+@pytest.mark.skip
 def test_sort_by_surname_desc():
     names = sort_by_surname_desc(NAMES)
     assert names[0] == 'Julian Sequeira'
     assert names[-1] == 'Alec Baldwin'
 
 
+@pytest.mark.skip
 def test_sort_by_surname_desc_different_names_list():
     names = sort_by_surname_desc(PY_CONTENT_CREATORS)
     assert names[0] == 'Julian Sequeira'
     assert names[-1] == 'Dan Bader'
 
 
+@pytest.mark.skip
 def test_shortest_first_name():
     assert shortest_first_name(NAMES) == 'Al'
 
 
+@pytest.mark.skip
 def test_shortest_first_name_different_names_list():
     assert shortest_first_name(PY_CONTENT_CREATORS) == 'Dan'
