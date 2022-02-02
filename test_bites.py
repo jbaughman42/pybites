@@ -8,6 +8,8 @@ from bite_2_regex_fun import (extract_course_times,
 from bite_3_word_values import calc_word_value, load_words, max_word_value
 from bite_5_parse_name_list import (NAMES, dedup_and_title_case_names,
                                     shortest_first_name, sort_by_surname_desc)
+from bite_9_palindromes import (get_longest_palindrome, is_palindrome,
+                                load_dictionary)
 from test_bites_data import *
 
 
@@ -144,6 +146,7 @@ def test_shortest_first_name_different_names_list():
     assert shortest_first_name(PY_CONTENT_CREATORS) == 'Dan'
 
 
+@pytest.mark.skip
 @pytest.mark.parametrize('number, expected', [
     (5, True), (153, True), (370, True),
     (371, True), (4150, False), (2020, False),
@@ -151,3 +154,29 @@ def test_shortest_first_name_different_names_list():
 ])
 def test_armstrong(number, expected):
     assert is_armstrong(number) == expected
+
+
+@pytest.mark.skip
+def test_is_palidrome():
+    assert is_palindrome('Aibohphobia')
+    assert is_palindrome('Avid diva')
+    assert is_palindrome('Avid diva. ')
+    assert is_palindrome('A Toyota’s a Toyota.')
+    assert is_palindrome('A man, a plan, a canal: Panama')
+    assert is_palindrome("No 'x' in 'Nixon'")
+    assert is_palindrome('malayalam')
+    
+    assert not is_palindrome('PyBites')
+    assert not is_palindrome('malayalan')
+    assert not is_palindrome('toyota')
+    assert not is_palindrome('palindrome')
+
+
+@pytest.mark.skip
+def test_get_longest_palindrome():
+    words = load_dictionary()
+    assert get_longest_palindrome() == 'malayalam'
+    
+    new_longest = 'A car, a man, a maraca.'
+    words = list(words) + [new_longest]
+    assert get_longest_palindrome(words) == new_longest
